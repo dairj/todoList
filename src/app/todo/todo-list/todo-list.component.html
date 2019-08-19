@@ -1,0 +1,15 @@
+<!-- <p>todo-list works!</p>*ngIf = "childShowTodos.length>0" -->
+<section >
+    <ul class="todo-list" >
+       <!--  这个地方可以让let todo of todoservice.todos -->
+        <li *ngFor = "let todo of childShowTodos" >
+            <div class="todoItem" [class.completed]="todo.complete" *ngIf="!todo.isEdit"> 
+                <input id="{{todo.id}}" class="toggle" type="checkbox" [checked]="todo.complete" (click)="toggleComplete(todo)">
+                <label for="{{todo.id}}" class="newCheckbox"></label>
+                <label class="todoTitle" (dblclick)='toggleEdit(todo.id)'>{{todo.title}}</label>
+                <i class="remove" (click)="removeTodo(todo)">×</i>
+            </div>
+            <input type="text" name="" [(ngModel)]="todo.title" *ngIf="todo.isEdit" (keyup.enter)="changeTitle(todo)" class="edit-box">
+        </li>
+    </ul>
+</section>

@@ -1,0 +1,21 @@
+<div class="all">
+<!-- 搜索框部分 -->
+<header>
+<!-- 输入内容，按下回车，触发keyup.enter事件，将输入的内容绑定到newTodo的title属性当中 -->
+    <i (click) = "allChange()" class="allCompleted">></i>
+    <input placeholder="请输入您要做的事情" [(ngModel)]="title" (keyup.enter)="addTodo(title)"  class="inputbox"/>
+</header>
+<router-outlet></router-outlet>
+    
+<!-- 下面路由部分 -->
+<footer>
+    <span>目前还剩 {{leftCount}} 项未完成</span>
+    <button (click) = "clearCompleted()" style="margin-left: 20px" *ngIf="clearFlag">移除已完成</button>
+    <button [class.activeButton] = "tab === 'uncomplete'" routerLink='/todo-list/uncomplete'>未完成</button>
+    <button [class.activeButton] = "tab === 'completed'" routerLink='/todo-list/completed'>已完成</button>
+    <button  [class.activeButton] = "tab === 'all'" routerLink='/todo-list/all'>全部</button>
+</footer>
+</div>
+<!-- (click) = "switchTab('uncomplete')" 
+     (click) = "switchTab('completed')"
+     (click) = "switchTab('all')" -->

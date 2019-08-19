@@ -1,0 +1,101 @@
+section{
+    width: 100%;
+    margin:0 auto;
+    ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li{
+            height: 50px;
+            padding: 0;
+            border-bottom: 1px dashed rgba(175, 47, 47, 0.15);
+            text-align: left;
+            font-size: 20px;
+            line-height: 20px;
+            .todoItem{
+                position: relative;
+                padding: 12px 8px;
+                .todoTitle{
+                    padding: 0 8px;
+                }
+            }
+            i{
+               width: 30px;
+               height: 35px;
+               font-size: 30px;
+                float: right;
+                color: #cc9a9a;
+                cursor: pointer;
+                font-style: normal;
+                display: none;
+            }
+            // 编辑框时的样式
+            .edit-box{
+                display: block;
+                width:560px;
+                padding: 12px 16px;
+                margin: 0 0 0 43px;
+                padding: 6px;
+                line-height: 1.4em;
+                font-size: 24px;
+                border: 1px solid #999;
+                box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+                box-sizing: border-box;
+            }
+            .edit-box:focus{
+                outline: none;
+            }
+        }
+        li:hover i{
+            display: inline-block;
+        }
+    }
+}
+.completed{
+    text-decoration: line-through;
+    color: rgb(175, 170, 170);
+}
+// 设置复选框
+// 隐藏原来的checkbox样式
+input[type='checkbox'] {
+    display: inline-block;
+  }
+// 通过与input关联的label来设置样式
+
+.todoItem .newCheckbox{
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #eeeeee;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.todoItem .newCheckbox:after {
+    content: "√";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    background-color: rgb(253, 253, 253);
+    color: #a8322ea4;
+    left: 1px;
+    top: 1px;
+    text-align: center;
+    transform: translateY(-30px);
+    transition: transform .2s ease-out;
+    border-radius: 4px;
+}
+
+.todoItem [type="checkbox"]:checked +.newCheckbox:after {
+    transform: translateY(0px);
+    transition: transform o.1s ease-in;
+}
+
+.todoItem [type="checkbox"]{
+    display: none;
+}
