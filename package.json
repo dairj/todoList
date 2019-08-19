@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:docs": "npm run build && mv ./dist/todo ./docs",
+    "prebuild:docs": "rm -rfv ./docs",
+    "build:docs": "ng build --base-href=/todoList && mv ./dist/todo ./docs",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
